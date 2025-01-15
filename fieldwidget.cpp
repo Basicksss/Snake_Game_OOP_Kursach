@@ -17,20 +17,20 @@ void FieldWidget::keyPressEvent(QKeyEvent *event) {
             }
             return; // Не обрабатываем другие клавиши
         }
-
-        if (!gameStarted) {
-            // Начинаем игру при нажатии стрелки
-            if (event->key() == Qt::Key_Up || event->key() == Qt::Key_Down ||
+    if (!gameStarted) {
+        // Начинаем игру при нажатии стрелки
+        if (event->key() == Qt::Key_Up || event->key() == Qt::Key_Down ||
                 event->key() == Qt::Key_Left || event->key() == Qt::Key_Right) {
-                gameStarted = true; // Игра началась
-                timer.start(); // Запускаем таймер
-            }
-            return; // Не обрабатываем другие клавиши до начала игры
+            gameStarted = true; // Игра началась
+            timer.start(); // Запускаем таймер
         }
-        if(event->key()==Qt::Key_Escape)
-        {
-            pauseGame();
-        }
+        return; // Не обрабатываем другие клавиши до начала игры
+    }
+
+    if(event->key()==Qt::Key_Escape)
+    {
+        pauseGame();
+    }
 
     switch (event->key()) {
     case Qt::Key_Up:
